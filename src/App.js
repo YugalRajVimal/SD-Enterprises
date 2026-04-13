@@ -11,9 +11,7 @@ import ContactPage from './Pages/ContactUs';
 const App = () => {
   return (
     <Router>
-      <div className="relative">
         <Navbar />
-        <div className="">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
@@ -22,8 +20,7 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
-        </div>
-      </div>
+
     </Router>
   );
 };
