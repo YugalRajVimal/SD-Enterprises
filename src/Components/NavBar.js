@@ -18,11 +18,20 @@ const DiamondIcon = () => (
   </div>
 );
 
+// Utility to check if a link matches the current page
+function isActiveLink(linkHref) {
+  if (typeof window === "undefined") return false;
+  if (linkHref === "/") {
+    return window.location.pathname === "/";
+  }
+  return window.location.pathname.startsWith(linkHref);
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
 
+  // No manual activeLink state, always highlight current page
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -58,7 +67,7 @@ export default function Navbar() {
       {/* Main bar */}
       <div className=" mx-auto px-6 lg:px-8 h-16 flex items-center gap-0">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 flex-shrink-0">
+        <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
           <DiamondIcon />
           <motion.span
             animate={{ color: scrolled ? "#111111" : "#ffffff" }}
@@ -71,29 +80,37 @@ export default function Navbar() {
 
         {/* Desktop nav links */}
         <ul className="hidden lg:flex items-center gap-1 ml-12">
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                onClick={() => setActiveLink(link.label)}
-                className="relative px-3 py-1.5 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 group"
-                style={{ color: activeLink === link.label ? "#E87722" : scrolled ? "#555" : "rgba(255,255,255,0.78)" }}
-              >
-                {link.label}
-                {activeLink === link.label && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-500 rounded-full"
-                    transition={{ type: "spring", stiffness: 500, damping: 35 }}
+          {links.map((link) => {
+            const selected = typeof window !== "undefined" && isActiveLink(link.href);
+            return (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className="relative px-3 py-1.5 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 group"
+                  style={{
+                    color: selected
+                      ? "#E87722"
+                      : scrolled
+                      ? "#555"
+                      : "rgba(255,255,255,0.78)",
+                  }}
+                >
+                  {link.label}
+                  {selected && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-500 rounded-full"
+                      transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                    />
+                  )}
+                  <span
+                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    style={{ display: selected ? "none" : "block" }}
                   />
-                )}
-                <span
-                  className="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  style={{ display: activeLink === link.label ? "none" : "block" }}
-                />
-              </a>
-            </li>
-          ))}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex-1" />
@@ -191,23 +208,39 @@ export default function Navbar() {
             }}
           >
             <div className="px-6 pb-6 pt-2 flex flex-col gap-1">
-              {links.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.07, duration: 0.25 }}
-                  onClick={() => { setActiveLink(link.label); setMenuOpen(false); }}
-                  className="text-left py-3 text-sm font-semibold tracking-widest uppercase transition-colors duration-200 hover:text-orange-500"
-                  style={{
-                    color: activeLink === link.label ? "#E87722" : scrolled ? "#333" : "rgba(255,255,255,0.8)",
-                    borderBottom: scrolled ? "1px solid #f0f0f0" : "1px solid rgba(255,255,255,0.07)",
-                  }}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
+              {links.map((link, i) => {
+                const selected = typeof window !== "undefined" && isActiveLink(link.href);
+                return (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.07, duration: 0.25 }}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-left py-3 text-sm font-semibold tracking-widest uppercase transition-colors duration-200 hover:text-orange-500"
+                    style={{
+                      color: selected
+                        ? "#E87722"
+                        : scrolled
+                        ? "#333"
+                        : "rgba(255,255,255,0.8)",
+                      borderBottom: scrolled
+                        ? "1px solid #f0f0f0"
+                        : "1px solid rgba(255,255,255,0.07)",
+                      position: "relative",
+                    }}
+                  >
+                    {link.label}
+                    {selected && (
+                      <span
+                        className="absolute left-0 right-0 bottom-0 h-0.5 bg-orange-500 rounded-full"
+                        style={{ opacity: 1, transition: "opacity 0.2s" }}
+                      />
+                    )}
+                  </motion.a>
+                );
+              })}
 
               {/* Contact in mobile */}
               <motion.div
