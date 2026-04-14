@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './Components/NavBar';
 import HomePage from './Pages/HomePage';
 import { Footer } from './Components/Footer';
 import AboutUs from './Pages/AboutUs';
 import ServicesPage from './Pages/ServicesPage';
 import PortfolioPage from './Pages/Portfolio';
 import ContactPage from './Pages/ContactUs';
+import Navbar from './Components/NavBar';
 
 const App = () => {
   return (
     <Router>
-        <Navbar />
+        <Navbar/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />

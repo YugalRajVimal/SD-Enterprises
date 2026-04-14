@@ -1,44 +1,55 @@
 export const CompanyProfile = () => {
-    return (
-      <section className=" py-20 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div>
-            <p className="text-xs tracking-widest text-gray-500 mb-4">
-              WHAT WE OFFER
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Company Profile
-            </h2>
-            <p className="text-gray-500 leading-relaxed mb-8">
-              We are a long-established, independent building services and home
-              improvements company. We have a wealth of experience working as main
-              building contractors on all kinds of projects, big and small, from
-              home maintenance and improvements to extensions, refurbishments and
-              new builds.
-            </p>
-  
-            <button className="border px-6 py-3 rounded-full text-sm font-medium hover:bg-black hover:text-white transition">
-              VIEW MORE ↗
-            </button>
+  return (
+    <section className="py-16 px-6 md:px-16 bg-white">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        {/* Left Content */}
+        <div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5">
+            About <span className="text-orange-600">S D Enterprises</span>
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            S D Enterprises delivers turnkey design and execution for healthcare, office, and institutional projects. Since 2017, our certified team has provided quality spaces with a focus on speed, precision, and teamwork.
+          </p>
+
+          {/* Key Highlights / Info Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-orange-100">
+              <h3 className="text-lg font-semibold text-orange-600 mb-1">Established</h3>
+              <p className="text-sm text-gray-600">
+                2017 | ISO 9001:2015 | MSME Registered
+              </p>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-orange-100">
+              <h3 className="text-lg font-semibold text-orange-600 mb-1">Pan-India Projects</h3>
+              <p className="text-sm text-gray-600">
+                Hospitals, institutions, and corporations across India.
+              </p>
+            </div>
           </div>
-  
-          {/* Right Images */}
-          <div className="relative flex justify-center items-center">
-            <img
-              src="/BG3.png"
-              className="w-full "
-            />
-  
-        
-  
-            {/* Circle Badge */}
-            {/* <div className="absolute top-10 right-32 w-24 h-24 rounded-full border border-gray-400 flex items-center justify-center text-xs text-center bg-white/70 backdrop-blur">
-              ABOUT US • ABOUT US
-            </div> */}
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <span className="text-base font-medium text-black">
+              Let's build excellence together.
+            </span>
+            <a
+              href="#contact"
+              className="border border-orange-600 bg-orange-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-white hover:text-orange-600 hover:border-orange-600 transition"
+            >
+              Contact Us
+            </a>
           </div>
         </div>
-      </section>
-    );
-  };
-  
+
+        {/* Right Images */}
+        <div className="relative flex justify-center items-center">
+          <img
+            src="/BG3.png"
+            alt="S D Enterprises working"
+            className="w-full"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};

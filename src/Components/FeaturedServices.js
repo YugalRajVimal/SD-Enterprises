@@ -22,11 +22,12 @@ export const FeaturedServices = () => {
             Featured Services
           </h2>
           <p className="text-gray-500 leading-relaxed mb-8">
-            We have a wealth of experience working as main building contractors on all kinds of projects, big and small, from home maintenance and improvements to extensions, refurbishments and new builds.
+            At S D ENTERPRISES, we deliver end-to-end turnkey solutions across healthcare, commercial, and institutional spaces. With ISO-certified processes, experienced engineers, and a skilled workforce, we ensure every project is executed with precision, speed, and superior quality—transforming ideas into functional, elegant environments.
           </p>
+     
 
           <button className="border px-6 py-3 rounded-full text-sm font-medium hover:bg-black hover:text-white transition">
-            VIEW MORE ↗
+            VIEW OUR WORK ↗
           </button>
         </div>
 
@@ -51,10 +52,6 @@ export const FeaturedServices = () => {
               <h3 className="text-lg font-semibold mb-2">
                 {item.title}
               </h3>
-
-              <span className={`text-sm flex items-center gap-1 text-gray-500 group-hover:text-white`}>
-                VIEW MORE ↗
-              </span>
             </div>
           ))}
         </div>

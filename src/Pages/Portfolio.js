@@ -10,7 +10,7 @@ import {
 } from "react-icons/fi";
 
 // ─────────────────────────────────────────────
-// DATA
+// TEMPLATE DATA (sample navigation, projects, company details)
 // ─────────────────────────────────────────────
 
 const navLinks = [
@@ -22,13 +22,14 @@ const navLinks = [
   { label: "CONTACT US", hasDropdown: false },
 ];
 
+// Example (template/sample) portfolio items
 const portfolioItems = [
-  { id: 1, image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", category: "Heavy Lifting", title: "Crane Operations" },
-  { id: 2, image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80", category: "Structural", title: "Steel Framework" },
-  { id: 3, image: "https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=800&q=80", category: "Civil Works", title: "Foundation Laying" },
-  { id: 4, image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80", category: "Infrastructure", title: "Tower Assembly" },
-  { id: 5, image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", category: "Logistics", title: "Heavy Transport" },
-  { id: 6, image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80", category: "Landscape Design", title: "Site Management" },
+  { id: 1, image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", category: "Category One", title: "Project Title One" },
+  { id: 2, image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80", category: "Category Two", title: "Project Title Two" },
+  { id: 3, image: "https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=800&q=80", category: "Category Three", title: "Project Title Three" },
+  { id: 4, image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80", category: "Category Four", title: "Project Title Four" },
+  { id: 5, image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", category: "Category Five", title: "Project Title Five" },
+  { id: 6, image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80", category: "Category Six", title: "Project Title Six" },
 ];
 
 const topRightImages = [
@@ -44,6 +45,11 @@ const bottomGridImages = [
   "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
   "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
 ];
+
+// TEMPLATE CONSTANTS (UPDATE FOR REAL COMPANY INFO)
+const COMPANY_NAME = "S D Enterprises";
+const COMPANY_PHONE = "XXXXXXXXXX";
+const COMPANY_EMAIL = "company@email.com";
 
 // ─────────────────────────────────────────────
 // FRAMER VARIANTS
@@ -75,7 +81,7 @@ function Navbar() {
           <div className="w-8 h-8 border-2 border-orange-500 rounded flex items-center justify-center">
             <div className="w-3 h-3 bg-orange-500 rounded-sm rotate-45" />
           </div>
-          <span className="text-white font-bold text-xl tracking-tight">bygge</span>
+          <span className="text-white font-bold text-xl tracking-tight">{COMPANY_NAME}</span>
         </div>
 
         {/* Desktop Nav Links */}
@@ -92,17 +98,23 @@ function Navbar() {
 
         {/* Contact + CTA */}
         <div className="hidden lg:flex items-center gap-5">
-          <a href="tel:+800123456789" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
+          <a
+            href={`tel:${COMPANY_PHONE}`}
+            className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors"
+          >
             <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center">
               <FiPhone className="w-3 h-3" />
             </span>
-            +800 123 456 789
+            {COMPANY_PHONE}
           </a>
-          <a href="mailto:info@codeless.co" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
+          <a
+            href={`mailto:${COMPANY_EMAIL}`}
+            className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors"
+          >
             <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center">
               <FiMail className="w-3 h-3" />
             </span>
-            INFO@CODELESS.CO
+            {COMPANY_EMAIL.toUpperCase()}
           </a>
           <button className="flex items-center gap-2 bg-white text-gray-900 text-[11px] font-bold tracking-widest px-5 py-2.5 rounded hover:bg-orange-500 hover:text-white transition-all duration-300">
             GET A QUOTE <FiArrowUpRight className="w-3.5 h-3.5" />
@@ -134,11 +146,11 @@ function Navbar() {
               </button>
             ))}
             <div className="flex flex-col gap-3 mt-4">
-              <a href="tel:+800123456789" className="flex items-center gap-2 text-white text-xs">
-                <FiPhone /> +800 123 456 789
+              <a href={`tel:${COMPANY_PHONE}`} className="flex items-center gap-2 text-white text-xs">
+                <FiPhone /> {COMPANY_PHONE}
               </a>
-              <a href="mailto:info@codeless.co" className="flex items-center gap-2 text-white text-xs">
-                <FiMail /> INFO@CODELESS.CO
+              <a href={`mailto:${COMPANY_EMAIL}`} className="flex items-center gap-2 text-white text-xs">
+                <FiMail /> {COMPANY_EMAIL.toUpperCase()}
               </a>
               <button className="flex items-center justify-center gap-2 bg-orange-500 text-white text-[11px] font-bold tracking-widest px-5 py-3 rounded mt-1">
                 GET A QUOTE <FiArrowUpRight />

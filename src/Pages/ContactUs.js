@@ -11,50 +11,52 @@ import {
 import { FaMapMarkerAlt, FaCommentAlt, FaClock } from "react-icons/fa";
 
 // ═══════════════════════════════════════════════════════════════════
-// DATA
+// TEMPLATE DATA (Edit these values to personalize!)
 // ═══════════════════════════════════════════════════════════════════
+
+const COMPANY_NAME = "S D Enterprises";
 
 const navLinks = [
   { label: "HOME", hasDropdown: true },
-  { label: "ABOUT", hasDropdown: false },
+  { label: "ABOUT US", hasDropdown: false },
   { label: "SERVICES", hasDropdown: false },
-  { label: "BLOG", hasDropdown: true },
-  { label: "FEATURES", hasDropdown: true },
+  { label: "PROJECTS", hasDropdown: false },
+  { label: "CAREERS", hasDropdown: false },
   { label: "CONTACT US", hasDropdown: false },
 ];
 
 const offices = [
   {
     id: 1,
-    city: "Oslo",
-    address: "Holmlia Senter vei 33, Oslo, Norway 1255",
-    phone: "+47-123-4567",
-    email: "info@bygge.com",
-    hours: "Monday – Friday 6 am to 8 pm EST",
+    city: "Delhi",
+    address: "123, Example Street, Delhi, India 110001",
+    phone: "XXXXXXXXXX",
+    email: "info@sdenteprises.com",
+    hours: "Monday – Friday 9 am to 6 pm IST",
   },
   {
     id: 2,
-    city: "Los Angeles",
-    address: "9989 Hilldale Rd. Los Angeles, CA 90004",
-    phone: "+47-123-4567",
-    email: "info@bygge.com",
-    hours: "Monday – Friday 6 am to 8 pm EST",
+    city: "Mumbai",
+    address: "456, Sample Avenue, Mumbai, Maharashtra 400001",
+    phone: "XXXXXXXXXX",
+    email: "mumbai@sdenteprises.com",
+    hours: "Monday – Friday 9 am to 6 pm IST",
   },
   {
     id: 3,
-    city: "New York",
-    address: "2231 Redbud Drive, Whitestone, NY 11357",
-    phone: "+47-123-4567",
-    email: "info@bygge.com",
-    hours: "Monday – Friday 6 am to 8 pm EST",
+    city: "Bangalore",
+    address: "789, Test Blvd, Bangalore, Karnataka 560001",
+    phone: "XXXXXXXXXX",
+    email: "blore@sdenteprises.com",
+    hours: "Monday – Friday 9 am to 6 pm IST",
   },
   {
     id: 4,
-    city: "London",
-    address: "47 New Street, London, UK E1 6AN",
-    phone: "+47-123-4567",
-    email: "info@bygge.com",
-    hours: "Monday – Friday 6 am to 8 pm EST",
+    city: "Kolkata",
+    address: "101, Example Road, Kolkata, West Bengal 700001",
+    phone: "XXXXXXXXXX",
+    email: "kolkata@sdenteprises.com",
+    hours: "Monday – Friday 9 am to 6 pm IST",
   },
 ];
 
@@ -87,7 +89,7 @@ export function Navbar({ activePage = "" }) {
           <div className="w-8 h-8 border-2 border-orange-500 rounded flex items-center justify-center">
             <div className="w-3 h-3 bg-orange-500 rounded-sm rotate-45" />
           </div>
-          <span className="text-white font-bold text-xl tracking-tight">bygge</span>
+          <span className="text-white font-bold text-xl tracking-tight">{COMPANY_NAME}</span>
         </div>
 
         {/* Desktop Links */}
@@ -113,17 +115,17 @@ export function Navbar({ activePage = "" }) {
 
         {/* Contact + CTA */}
         <div className="hidden lg:flex items-center gap-5">
-          <a href="tel:+800123456789" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
+          <a href="tel:XXXXXXXXXX" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
             <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center">
               <FiPhone className="w-3 h-3" />
             </span>
-            +800 123 456 789
+            XXXXXXXXXX
           </a>
-          <a href="mailto:info@codeless.co" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
+          <a href="mailto:info@sdenteprises.com" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
             <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center">
               <FiMail className="w-3 h-3" />
             </span>
-            INFO@CODELESS.CO
+            info@sdenteprises.com
           </a>
           <button className="flex items-center gap-2 bg-white text-gray-900 text-[11px] font-bold tracking-widest px-5 py-2.5 rounded hover:bg-orange-500 hover:text-white transition-all duration-300">
             GET A QUOTE <FiArrowUpRight className="w-3.5 h-3.5" />
@@ -155,11 +157,11 @@ export function Navbar({ activePage = "" }) {
               </button>
             ))}
             <div className="flex flex-col gap-3 mt-4">
-              <a href="tel:+800123456789" className="flex items-center gap-2 text-white text-xs">
-                <FiPhone /> +800 123 456 789
+              <a href="tel:XXXXXXXXXX" className="flex items-center gap-2 text-white text-xs">
+                <FiPhone /> XXXXXXXXXX
               </a>
-              <a href="mailto:info@codeless.co" className="flex items-center gap-2 text-white text-xs">
-                <FiMail /> INFO@CODELESS.CO
+              <a href="mailto:info@sdenteprises.com" className="flex items-center gap-2 text-white text-xs">
+                <FiMail /> info@sdenteprises.com
               </a>
               <button className="flex items-center justify-center gap-2 bg-orange-500 text-white text-[11px] font-bold tracking-widest px-5 py-3 rounded mt-1">
                 GET A QUOTE <FiArrowUpRight />
@@ -259,8 +261,7 @@ function OfficeCard({ office }) {
             <FaClock className="text-white w-3.5 h-3.5" />
           </span>
           <div>
-            <p className="text-[13px] font-bold text-gray-900">Monday – Friday</p>
-            <p className="text-[13px] font-bold text-gray-900">6 am to 8 pm EST</p>
+            <p className="text-[13px] font-bold text-gray-900">{office.hours.split("\n")[0] || "Office Hours"}</p>
           </div>
         </div>
       </div>
@@ -308,7 +309,7 @@ export function CompanyOffices() {
             CONTACT DETAILS
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
-            Company Offices
+            {COMPANY_NAME} Offices
           </h2>
         </motion.div>
 
@@ -414,7 +415,7 @@ export function JoinTeam() {
       >
         <img
           src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80"
-          alt="Construction workers reviewing plans"
+          alt="Team at S D Enterprises"
           className="w-full h-full object-cover"
           style={{ minHeight: "380px" }}
         />
@@ -425,10 +426,10 @@ export function JoinTeam() {
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// BYGGE PIN (sub-component)
+// PIN ICON (generic for office map)
 // ═══════════════════════════════════════════════════════════════════
 
-function ByggePin() {
+function PinIcon() {
   return (
     <div className="flex flex-col items-center">
       <div className="bg-gray-900 rounded-xl p-3 shadow-2xl flex items-center justify-center w-16 h-16">
@@ -476,7 +477,7 @@ export function ContactFormMap() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-10">
-            Company Offices
+            {COMPANY_NAME} Offices
           </h2>
 
           <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-lg">
@@ -520,15 +521,15 @@ export function ContactFormMap() {
       {/* Right — Map */}
       <div className="relative min-h-[400px] lg:min-h-0 overflow-hidden">
         <iframe
-          title="Office Location – Oslo"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=10.70,59.88,10.78,59.93&layer=mapnik&marker=59.909,10.741"
+          title="Office Location – {COMPANY_NAME}"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=77.2100,28.6139,77.2300,28.6239&layer=mapnik&marker=28.6189,77.2200"
           className="w-full h-full absolute inset-0 border-0"
           style={{ filter: "grayscale(100%) contrast(0.88) brightness(1.05)", minHeight: "500px" }}
           loading="lazy"
           allowFullScreen
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none z-10">
-          <ByggePin />
+          <PinIcon />
         </div>
       </div>
     </section>
