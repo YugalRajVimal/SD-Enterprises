@@ -24,8 +24,14 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 py-12 border-b border-orange-500">
         {/* Company Overview */}
         <div>
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex flex-col items-start gap-2 mb-4">
             {/* Logo SVG or Text */}
+            <img
+              src="/logo.png"
+              alt="S D Enterprises Logo"
+              className="w-24 h-24 object-contain rounded bg-white aspect-square p-2"
+            />
+      
             <span className="text-2xl font-bold tracking-wide text-orange-500">S D ENTERPRISES</span>
           </div>
           <p className="text-gray-300 text-sm mb-6">
@@ -90,15 +96,21 @@ export const Footer = () => {
           <div className="space-y-2 mb-4 text-sm">
             <div className="flex items-start">
               <span className="mr-2 text-orange-400">📍</span>
-              <span className="text-gray-200">[Your Office Address]</span>
+              <span className="text-gray-200">
+                25-A Shraddha Shri Colony, MR-9, Near Chintaman Hanuman Mandir, Indore, MP, 452001
+              </span>
             </div>
             <div className="flex items-center">
               <span className="mr-2 text-orange-400">📞</span>
-              <a href="tel:+91XXXXXXXXXX" className="hover:text-orange-400 transition-colors underline underline-offset-2">+91 XXXXX XXXXX</a>
+              <a href="tel:+919575577797" className="hover:text-orange-400 transition-colors underline underline-offset-2">
+                +91 95755 77797
+              </a>
             </div>
             <div className="flex items-center">
               <span className="mr-2 text-orange-400">📧</span>
-              <a href="mailto:info@sdenterprises.com" className="hover:text-orange-400 transition-colors underline underline-offset-2">info@sdenterprises.com</a>
+              <a href="mailto:sd.enterprises0707@gmail.com" className="hover:text-orange-400 transition-colors underline underline-offset-2">
+                sd.enterprises0707@gmail.com
+              </a>
             </div>
             <div className="flex items-center">
               <span className="mr-2 text-orange-400">🕒</span>

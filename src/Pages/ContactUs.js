@@ -11,10 +11,17 @@ import {
 import { FaMapMarkerAlt, FaCommentAlt, FaClock } from "react-icons/fa";
 
 // ═══════════════════════════════════════════════════════════════════
-// TEMPLATE DATA (Edit these values to personalize!)
+// TEMPLATE DATA
 // ═══════════════════════════════════════════════════════════════════
 
 const COMPANY_NAME = "S D Enterprises";
+const OFFICE_ADDRESS =
+  "25-A Shraddha Shri Colony, MR-9, Near Chintaman Hanuman Mandir, Indore, MP, 452001";
+const OFFICE_PHONE = "+91 95755 77797";
+const OFFICE_PHONE_LINK = "tel:+919575577797";
+const OFFICE_EMAIL = "sd.enterprises0707@gmail.com";
+const OFFICE_EMAIL_LINK = "mailto:sd.enterprises0707@gmail.com";
+const OFFICE_HOURS = "Monday – Friday 9 am to 6 pm IST";
 
 const navLinks = [
   { label: "HOME", hasDropdown: true },
@@ -25,45 +32,7 @@ const navLinks = [
   { label: "CONTACT US", hasDropdown: false },
 ];
 
-const offices = [
-  {
-    id: 1,
-    city: "Delhi",
-    address: "123, Example Street, Delhi, India 110001",
-    phone: "XXXXXXXXXX",
-    email: "info@sdenteprises.com",
-    hours: "Monday – Friday 9 am to 6 pm IST",
-  },
-  {
-    id: 2,
-    city: "Mumbai",
-    address: "456, Sample Avenue, Mumbai, Maharashtra 400001",
-    phone: "XXXXXXXXXX",
-    email: "mumbai@sdenteprises.com",
-    hours: "Monday – Friday 9 am to 6 pm IST",
-  },
-  {
-    id: 3,
-    city: "Bangalore",
-    address: "789, Test Blvd, Bangalore, Karnataka 560001",
-    phone: "XXXXXXXXXX",
-    email: "blore@sdenteprises.com",
-    hours: "Monday – Friday 9 am to 6 pm IST",
-  },
-  {
-    id: 4,
-    city: "Kolkata",
-    address: "101, Example Road, Kolkata, West Bengal 700001",
-    phone: "XXXXXXXXXX",
-    email: "kolkata@sdenteprises.com",
-    hours: "Monday – Friday 9 am to 6 pm IST",
-  },
-];
-
-// ═══════════════════════════════════════════════════════════════════
-// FRAMER VARIANTS
-// ═══════════════════════════════════════════════════════════════════
-
+// Framer Motion variants
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
@@ -115,17 +84,17 @@ export function Navbar({ activePage = "" }) {
 
         {/* Contact + CTA */}
         <div className="hidden lg:flex items-center gap-5">
-          <a href="tel:XXXXXXXXXX" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
+          <a href={OFFICE_PHONE_LINK} className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
             <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center">
               <FiPhone className="w-3 h-3" />
             </span>
-            XXXXXXXXXX
+            {OFFICE_PHONE}
           </a>
-          <a href="mailto:info@sdenteprises.com" className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
+          <a href={OFFICE_EMAIL_LINK} className="flex items-center gap-2 text-white text-xs font-medium hover:text-orange-400 transition-colors">
             <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center">
               <FiMail className="w-3 h-3" />
             </span>
-            info@sdenteprises.com
+            {OFFICE_EMAIL}
           </a>
           <button className="flex items-center gap-2 bg-white text-gray-900 text-[11px] font-bold tracking-widest px-5 py-2.5 rounded hover:bg-orange-500 hover:text-white transition-all duration-300">
             GET A QUOTE <FiArrowUpRight className="w-3.5 h-3.5" />
@@ -157,11 +126,11 @@ export function Navbar({ activePage = "" }) {
               </button>
             ))}
             <div className="flex flex-col gap-3 mt-4">
-              <a href="tel:XXXXXXXXXX" className="flex items-center gap-2 text-white text-xs">
-                <FiPhone /> XXXXXXXXXX
+              <a href={OFFICE_PHONE_LINK} className="flex items-center gap-2 text-white text-xs">
+                <FiPhone /> {OFFICE_PHONE}
               </a>
-              <a href="mailto:info@sdenteprises.com" className="flex items-center gap-2 text-white text-xs">
-                <FiMail /> info@sdenteprises.com
+              <a href={OFFICE_EMAIL_LINK} className="flex items-center gap-2 text-white text-xs">
+                <FiMail /> {OFFICE_EMAIL}
               </a>
               <button className="flex items-center justify-center gap-2 bg-orange-500 text-white text-[11px] font-bold tracking-widest px-5 py-3 rounded mt-1">
                 GET A QUOTE <FiArrowUpRight />
@@ -224,53 +193,56 @@ export function ContactHero() {
 // OFFICE CARD (sub-component)
 // ═══════════════════════════════════════════════════════════════════
 
-function OfficeCard({ office }) {
+function OfficeCard() {
   return (
     <motion.div
       variants={cardVariants}
       className="bg-white rounded-2xl p-7 flex flex-col shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
     >
       <h3 className="text-[18px] font-black text-gray-900 tracking-tight mb-4">
-        Office in {office.city}
+        Office in Indore
       </h3>
       <div className="w-full h-px bg-gray-200 mb-5" />
 
       <div className="flex flex-col gap-4 flex-1">
         {/* Address */}
-        <div className="flex items-start gap-3">
+        <div className="flex items-center gap-3">
           <span className="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center shrink-0 mt-0.5">
             <FaMapMarkerAlt className="text-white w-3.5 h-3.5" />
           </span>
-          <p className="text-[13px] font-bold text-gray-900 leading-snug">{office.address}</p>
+          <p className="text-[13px] font-bold text-gray-900 leading-snug">
+            {OFFICE_ADDRESS}
+          </p>
         </div>
 
         {/* Phone + Email */}
-        <div className="flex items-start gap-3">
+        <div className="flex items-center gap-3">
           <span className="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center shrink-0 mt-0.5">
             <FaCommentAlt className="text-white w-3.5 h-3.5" />
           </span>
           <div>
-            <p className="text-[13px] font-bold text-gray-900">{office.phone}</p>
-            <p className="text-[13px] font-bold text-gray-900">{office.email}</p>
+            <p className="text-[13px] font-bold text-gray-900">
+              <a href={OFFICE_PHONE_LINK} className="hover:text-orange-500 transition">{OFFICE_PHONE}</a>
+            </p>
+            <p className="text-[13px] font-bold text-gray-900">
+              <a href={OFFICE_EMAIL_LINK} className="hover:text-orange-500 transition">{OFFICE_EMAIL}</a>
+            </p>
           </div>
         </div>
 
         {/* Hours */}
-        <div className="flex items-start gap-3">
+        <div className="flex items-center gap-3">
           <span className="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center shrink-0 mt-0.5">
             <FaClock className="text-white w-3.5 h-3.5" />
           </span>
           <div>
-            <p className="text-[13px] font-bold text-gray-900">{office.hours.split("\n")[0] || "Office Hours"}</p>
+            <p className="text-[13px] font-bold text-gray-900">{OFFICE_HOURS}</p>
           </div>
         </div>
       </div>
 
       <div className="w-full h-px bg-gray-200 mt-6 mb-4" />
-      <button className="flex items-center gap-2 text-[11px] font-black tracking-[0.18em] text-gray-700 hover:text-orange-500 transition-colors uppercase group w-fit">
-        VIEW MORE
-        <FiArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-      </button>
+      {/* No View More button, or you can keep if desired */}
     </motion.div>
   );
 }
@@ -309,20 +281,18 @@ export function CompanyOffices() {
             CONTACT DETAILS
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
-            {COMPANY_NAME} Offices
+            {COMPANY_NAME} Office
           </h2>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-1 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {offices.map((office) => (
-            <OfficeCard key={office.id} office={office} />
-          ))}
+          <OfficeCard />
         </motion.div>
       </div>
     </section>
@@ -477,7 +447,7 @@ export function ContactFormMap() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-10">
-            {COMPANY_NAME} Offices
+            {COMPANY_NAME} Office
           </h2>
 
           <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-lg">
@@ -521,8 +491,9 @@ export function ContactFormMap() {
       {/* Right — Map */}
       <div className="relative min-h-[400px] lg:min-h-0 overflow-hidden">
         <iframe
-          title="Office Location – {COMPANY_NAME}"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=77.2100,28.6139,77.2300,28.6239&layer=mapnik&marker=28.6189,77.2200"
+          title={`Office Location – ${COMPANY_NAME}`}
+          // Centered on Indore with marker (approximate)
+          src="https://www.openstreetmap.org/export/embed.html?bbox=75.8851,22.6946,75.8891,22.6986&layer=mapnik&marker=22.6966,75.8871"
           className="w-full h-full absolute inset-0 border-0"
           style={{ filter: "grayscale(100%) contrast(0.88) brightness(1.05)", minHeight: "500px" }}
           loading="lazy"

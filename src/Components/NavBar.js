@@ -27,6 +27,11 @@ function isActiveLink(linkHref) {
   return window.location.pathname.startsWith(linkHref);
 }
 
+const PHONE_DISPLAY = "+91 95755 77797";
+const PHONE_LINK = "tel:+919575577797";
+const MAIL_DISPLAY = "sd.enterprises0707@gmail.com";
+const MAIL_LINK = "mailto:sd.enterprises0707@gmail.com";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,14 +73,15 @@ export default function Navbar() {
       <div className=" mx-auto px-6 lg:px-8 h-16 flex items-center gap-0">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <DiamondIcon />
-          <motion.span
+          <img src="/logo.png" alt="S D Enterprises Logo" className="w-20 h-20 object-contain" />
+     
+          {/* <motion.span
             animate={{ color: scrolled ? "#111111" : "#ffffff" }}
             transition={{ duration: 0.35 }}
             className="text-base font-bold tracking-widest uppercase"
           >
             S D Enterprises
-          </motion.span>
+          </motion.span> */}
         </a>
 
         {/* Desktop nav links */}
@@ -118,7 +124,7 @@ export default function Navbar() {
         {/* Contact info */}
         <div className="hidden xl:flex items-center gap-6 mr-6">
           <a
-            href="tel:+91XXXXXXXXXX"
+            href={PHONE_LINK}
             className="flex items-center gap-2 text-xs font-medium tracking-wider transition-colors duration-300 hover:text-orange-500"
             style={{ color: scrolled ? "#555" : "rgba(255,255,255,0.75)" }}
           >
@@ -126,10 +132,10 @@ export default function Navbar() {
               style={{ borderColor: scrolled ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.3)" }}>
               <HiOutlinePhone size={13} />
             </span>
-            +91 XXXXX XXXXX
+            {PHONE_DISPLAY}
           </a>
           <a
-            href="mailto:info.sdenterprises@gmail.com"
+            href={MAIL_LINK}
             className="flex items-center gap-2 text-xs font-medium tracking-wider transition-colors duration-300 hover:text-orange-500"
             style={{ color: scrolled ? "#555" : "rgba(255,255,255,0.75)" }}
           >
@@ -137,7 +143,7 @@ export default function Navbar() {
               style={{ borderColor: scrolled ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.3)" }}>
               <HiOutlineMail size={13} />
             </span>
-            INFO.SDENTERPRISES@GMAIL.COM
+            {MAIL_DISPLAY.toUpperCase()}
           </a>
         </div>
 
@@ -249,15 +255,15 @@ export default function Navbar() {
                 transition={{ delay: 0.32 }}
                 className="mt-3 flex flex-col gap-2"
               >
-                <a href="tel:+91XXXXXXXXXX"
+                <a href={PHONE_LINK}
                   className="flex items-center gap-2 text-xs font-medium hover:text-orange-500 transition-colors"
                   style={{ color: scrolled ? "#777" : "rgba(255,255,255,0.55)" }}>
-                  <HiOutlinePhone size={14} /> +91 XXXXX XXXXX
+                  <HiOutlinePhone size={14} /> {PHONE_DISPLAY}
                 </a>
-                <a href="mailto:info.sdenterprises@gmail.com"
+                <a href={MAIL_LINK}
                   className="flex items-center gap-2 text-xs font-medium hover:text-orange-500 transition-colors"
                   style={{ color: scrolled ? "#777" : "rgba(255,255,255,0.55)" }}>
-                  <HiOutlineMail size={14} /> INFO.SDENTERPRISES@GMAIL.COM
+                  <HiOutlineMail size={14} /> {MAIL_DISPLAY}
                 </a>
               </motion.div>
 
