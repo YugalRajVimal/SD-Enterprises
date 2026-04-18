@@ -2,8 +2,71 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useRef } from "react";
 import "swiper/css";
 
+// The following image URLs are used for project showcases (same as used in HeroSection.js):
+// [
+//   "/Images/img5.jpeg",
+//   "/Images/img6.jpeg",
+//   "/Images/img7.jpeg",
+//   "/Images/img8.jpeg",
+//   "/Images/img9.jpeg",
+//   "/Images/img10.jpeg",
+//   "/Images/img11.jpeg",
+//   "/Images/img12.jpeg",
+//   "/Images/img13.jpeg",
+//   "/Images/img14.jpeg",
+//   "/Images/img15.jpeg",
+//   "/Images/img16.jpeg",
+//   "/Images/img17.jpeg",
+//   "/Images/img18.jpeg",
+//   "/Images/img19.jpeg",
+//   "/Images/img20.jpeg",
+//   "/Images/img21.jpeg",
+//   "/Images/img22.jpeg",
+//   "/Images/img23.jpeg",
+//   "/Images/img24.jpeg",
+//   "/Images/img25.jpeg",
+//   "/Images/img26.jpeg",
+//   "/Images/img27.jpeg",
+//   "/Images/img28.jpeg",
+//   "/Images/img29.jpeg",
+//   "/Images/img30.jpeg",
+//   "/Images/img31.jpeg",
+//   "/Images/img32.jpeg"
+// ]
+
+const WORK_IMAGES = [
+  "/Images/img5.jpeg",
+  "/Images/img6.jpeg",
+  "/Images/img7.jpeg",
+  "/Images/img8.jpeg",
+  "/Images/img9.jpeg",
+  "/Images/img10.jpeg",
+  "/Images/img11.jpeg",
+  "/Images/img12.jpeg",
+  "/Images/img13.jpeg",
+  "/Images/img14.jpeg",
+  "/Images/img15.jpeg",
+  "/Images/img16.jpeg",
+  "/Images/img17.jpeg",
+  "/Images/img18.jpeg",
+  "/Images/img19.jpeg",
+  "/Images/img20.jpeg",
+  "/Images/img21.jpeg",
+  "/Images/img22.jpeg",
+  "/Images/img23.jpeg",
+  "/Images/img24.jpeg",
+  "/Images/img25.jpeg",
+  "/Images/img26.jpeg",
+  "/Images/img27.jpeg",
+  "/Images/img28.jpeg",
+  "/Images/img29.jpeg",
+  "/Images/img30.jpeg",
+  "/Images/img31.jpeg",
+  "/Images/img32.jpeg",
+];
+
 export const WorkShowcase = () => {
-  // Data for Projects
+  // Data for Projects (one per image above)
   const projects = [
     {
       title: "AIIMS",
@@ -19,8 +82,7 @@ export const WorkShowcase = () => {
       locations: [
         "Delhi", "Jodhpur", "Raebareli", "Bhatinda", "Gorakhpur", "Jammu",
         "Nagpur", "Raipur", "Mangalagiri", "Bhopal", "Deoghar", "Bilaspur"
-      ],
-      image: "/projects/aiims.jpg",
+      ]
     },
     {
       title: "Military Hospital",
@@ -28,18 +90,15 @@ export const WorkShowcase = () => {
         "Delhi", "Mumbai", "Pathankot", "Jhansi", "Gwalior", "Mathura", "Prayagraj",
         "Suratgarh", "Jaipur", "Pune", "Rajouri", "Jallandhar", "Udhampur", "Chennai",
         "Goa", "Jodhpur"
-      ],
-      image: "/projects/military-hospital.jpg",
+      ]
     },
     {
       title: "National Cancer Institute",
-      locations: ["Jhajjar"],
-      image: "/projects/nci-jhajjar.jpg",
+      locations: ["Jhajjar"]
     },
     {
       title: "Tata Memorial Hospital",
-      locations: ["Varanasi", "Vizag", "Mullanpur"],
-      image: "/projects/tata-memorial.jpg",
+      locations: ["Varanasi", "Vizag", "Mullanpur"]
     },
     {
       title: "Govt. Medical College",
@@ -47,53 +106,43 @@ export const WorkShowcase = () => {
         "Rajkot", "Jamnagar", "Chandrapur", "Kanpur", "Madurai", "Chennai",
         "Udaipur", "Ajmer", "Wardha", "Jammu", "Jodhpur", "Kadappa", "Kurnool",
         "Vizag", "Siddipet", "Gandhinagar"
-      ],
-      image: "/projects/govt-medical-college.jpg",
+      ]
     },
     {
       title: "Max Hospital",
-      locations: ["Delhi", "Mohali", "Dehradun", "Gurugram"],
-      image: "/projects/max-hospital.jpg",
+      locations: ["Delhi", "Mohali", "Dehradun", "Gurugram"]
     },
     {
       title: "KGMU & Apollo",
-      locations: ["Lucknow"],
-      image: "/projects/kgmu-apollo.jpg",
+      locations: ["Lucknow"]
     },
     {
       title: "PGIMS",
-      locations: ["Rohtak", "Lucknow", "Chandigarh"],
-      image: "/projects/pgims.jpg",
+      locations: ["Rohtak", "Lucknow", "Chandigarh"]
     },
     {
       title: "Lady Hardinge Medical College, ILBS & INMAS",
-      locations: ["New Delhi"],
-      image: "/projects/lady-hardinge.jpg",
+      locations: ["New Delhi"]
     },
     {
       title: "ESIC Hospital",
-      locations: ["Alwar"],
-      image: "/projects/esic-alwar.jpg",
+      locations: ["Alwar"]
     },
     {
       title: "Fortis Hospital",
-      locations: ["Noida"],
-      image: "/projects/fortis-noida.jpg",
+      locations: ["Noida"]
     },
     {
       title: "IGMC",
-      locations: ["Shimla"],
-      image: "/projects/igmc-shimla.jpg",
+      locations: ["Shimla"]
     },
     {
       title: "BCM Reliance Hospital",
-      locations: ["Indore"],
-      image: "/projects/bcm-indore.jpg",
+      locations: ["Indore"]
     },
     {
       title: "Indian Oil Bottling Plant",
-      locations: [],
-      image: "/projects/indian-oil.jpg",
+      locations: []
     },
   ];
 
@@ -128,16 +177,18 @@ export const WorkShowcase = () => {
             if (!collaboratorsRefs.current[i]) collaboratorsRefs.current[i] = React.createRef();
             if (!locationsRefs.current[i]) locationsRefs.current[i] = React.createRef();
 
+            // Use associated WORK_IMAGES[i] for each project; if not enough images, repeat last image
+            const imageSrc = WORK_IMAGES[i] || WORK_IMAGES[WORK_IMAGES.length - 1];
+
             return (
               <SwiperSlide key={i}>
                 <div
                   className="flex flex-col items-stretch h-full group/card"
-                  // No explicit handlers needed; we'll use CSS via parent group
                 >
                   {/* Card */}
-                  <div className="relative group overflow-hidden bg-[#162531] rounded-t-lg shadow-sm flex flex-col h-full min-h-[320px]">
+                  <div className="relative group overflow-hidden bg-[#162531] rounded-lg shadow-sm flex flex-col h-full min-h-[320px]">
                     <img
-                      src={project.image || "https://images.unsplash.com/photo-1503387762-592deb58ef4e"}
+                      src={imageSrc}
                       alt={project.title}
                       className="w-full h-[210px] object-cover group-hover:scale-105 transition duration-500"
                       loading="lazy"
@@ -147,16 +198,16 @@ export const WorkShowcase = () => {
                         <h3 className="text-lg font-bold mb-1">{project.title}</h3>
                       </div>
                     </div>
-                    <div className="px-5 pb-3">
+                    {/* <div className="px-5 pb-3">
                       <span className="inline-block text-orange-400 text-sm font-semibold hover:underline cursor-pointer">
                         View More &rarr;
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   {/* Collaborators [& Location] below the card */}
-                  <div className="bg-[#192e41] rounded-b-lg mt-0 px-4 pt-3 pb-4">
+                  <div className="bg-[#192e41] hidden rounded-b-lg mt-0">
                     {/* Collaborators: single-line scrolling on card hover */}
-                    {project.collaborators && project.collaborators.length > 0 && (
+                    {/* {project.collaborators && project.collaborators.length > 0 && (
                       <div className="mb-2">
                         <span className="block text-xs font-semibold text-orange-300 mb-0.5">Collaborators:</span>
                         <div
@@ -172,7 +223,7 @@ export const WorkShowcase = () => {
                               minWidth: "100%",
                             }}
                           >
-                            {project.collaborators.map((collab, cidx) => (
+                            {project.collaborators && project.collaborators.map((collab, cidx) => (
                               <span
                                 key={collab + cidx}
                                 className="bg-orange-700/20 text-orange-100 px-2 py-0.5 text-[11px] rounded-full mx-0.5"
@@ -183,9 +234,9 @@ export const WorkShowcase = () => {
                           </div>
                         </div>
                       </div>
-                    )}
+                    )} */}
                     {/* Locations: single-line scrolling on card hover */}
-                    <div>
+                    {/* <div>
                       <span className="block text-xs font-semibold text-orange-200 mb-0.5">
                         {project.locations.length > 1 ? "Locations:" : "Location:"}
                       </span>
@@ -214,9 +265,11 @@ export const WorkShowcase = () => {
                           </div>
                         </div>
                       ) : (
-                        <span className="text-xs text-gray-400">No locations listed</span>
+                        <span className="text-xs text-gray-400">
+                          No locations listed
+                          </span>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </SwiperSlide>

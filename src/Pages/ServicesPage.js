@@ -117,7 +117,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            'url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop")',
+            'url("/Images/img15.jpeg")',
         }}
       />
       <div className="absolute inset-0 bg-black/50" />
@@ -215,17 +215,17 @@ const WorksShowcaseSection = () => {
     {
       title: 'Rural Management',
       category: 'CONSTRUCTION, WORK',
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop',
+      image: '/Images/img9.jpeg',
     },
     {
       title: 'Urban Development',
       category: 'CONSTRUCTION, PLANNING',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627de92f58a?w=600&h=400&fit=crop',
+      image: '/Images/img31.jpeg',
     },
     {
       title: 'Landscape Design',
       category: 'DESIGN, PLANNING',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+      image: '/Images/img17.jpeg',
     },
   ];
 
@@ -275,20 +275,20 @@ const WorksShowcaseSection = () => {
                   <img
                     src={work.image}
                     alt={work.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="  w-full mx-auto object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
                 </div>
                 <div className="p-6">
                   <p className="text-xs font-semibold text-gray-500 mb-2">{work.category}</p>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{work.title}</h3>
-                  <motion.button
+                  {/* <motion.button
                     whileHover={{ x: 5 }}
                     className="text-orange-500 font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all"
                   >
                     VIEW MORE
                     <FaArrowRight className="w-4 h-4" />
-                  </motion.button>
+                  </motion.button> */}
                 </div>
               </motion.div>
             </SwiperSlide>
@@ -357,7 +357,7 @@ const CompanyDataSection = () => {
             className="space-y-6"
           >
             <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=500&fit=crop"
+              src="/Images/img26.jpeg"
               alt="Company data"
               className="w-full rounded-lg shadow-lg"
             />
@@ -407,7 +407,7 @@ const ServiceCard = ({ number, icon: Icon, title, description, isHighlight }) =>
       </div>
       <Icon className={`w-8 h-8 mb-4 ${isHighlight ? 'text-white' : 'text-orange-500'}`} />
       <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <motion.button
+      {/* <motion.button
         whileHover={{ x: 5 }}
         className={`mt-4 font-semibold text-sm inline-flex items-center gap-2 ${
           isHighlight ? 'text-white' : 'text-gray-900'
@@ -415,7 +415,7 @@ const ServiceCard = ({ number, icon: Icon, title, description, isHighlight }) =>
       >
         VIEW MORE
         <FaArrowRight className="w-3 h-3" />
-      </motion.button>
+      </motion.button> */}
     </motion.div>
   );
 };
@@ -511,9 +511,9 @@ const PartnerCard = ({ name, logo }) => {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
-      className="bg-white p-8 rounded-lg border border-gray-200 flex items-center justify-center h-32"
+      className="bg-white p-8 rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden"
     >
-      <img src={logo} alt={name} className="max-w-full max-h-full object-contain" />
+      <img src={logo} alt={name} className="object-cover" />
     </motion.div>
   );
 };
@@ -522,39 +522,40 @@ const PartnersSection = () => {
   const partners = [
     {
       name: 'ColorHomes',
-      logo: 'https://via.placeholder.com/150x80?text=ColorHomes',
+      logo: '/Images/img6.jpeg'
     },
     {
       name: 'TwinHouses',
-      logo: 'https://via.placeholder.com/150x80?text=TwinHouses',
+      logo: '/Images/img7.jpeg'
     },
     {
       name: 'Woodware',
-      logo: 'https://via.placeholder.com/150x80?text=Woodware',
+      logo: '/Images/img8.jpeg'
     },
     {
       name: 'Greentechs',
-      logo: 'https://via.placeholder.com/150x80?text=Greentechs',
+      logo: '/Images/img9.jpeg'
     },
-    {
-      name: 'Accenco',
-      logo: 'https://via.placeholder.com/150x80?text=Accenco',
-    },
-    {
-      name: 'Forestics',
-      logo: 'https://via.placeholder.com/150x80?text=Forestics',
-    },
+    // {
+    //   name: 'Accenco',
+    //   logo: '/Images/img10.jpeg'
+    // },
+    // {
+    //   name: 'Forestics',
+    //   logo: '/Images/img11.jpeg'
+    // },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-start justify-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className='my-auto'
           >
             <p className="text-orange-500 font-semibold text-sm mb-4">MEET OUR PARTNERS</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -566,14 +567,14 @@ const PartnersSection = () => {
               kinds of projects, big and small, from home maintenance and improvements to
               extensions, refurbishments and new builds.
             </p>
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 border-2 border-orange-500 text-orange-500 font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all inline-flex items-center gap-2"
             >
               VIEW MORE
               <span>→</span>
-            </motion.button>
+            </motion.button> */}
           </motion.div>
 
           <motion.div

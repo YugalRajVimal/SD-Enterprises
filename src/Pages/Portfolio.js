@@ -22,28 +22,28 @@ const navLinks = [
   { label: "CONTACT US", hasDropdown: false },
 ];
 
-// Example (template/sample) portfolio items
+// Use local images from /Images/img1.jpeg to /Images/img33.jpeg
 const portfolioItems = [
-  { id: 1, image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", category: "Category One", title: "Project Title One" },
-  { id: 2, image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80", category: "Category Two", title: "Project Title Two" },
-  { id: 3, image: "https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=800&q=80", category: "Category Three", title: "Project Title Three" },
-  { id: 4, image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80", category: "Category Four", title: "Project Title Four" },
-  { id: 5, image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", category: "Category Five", title: "Project Title Five" },
-  { id: 6, image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80", category: "Category Six", title: "Project Title Six" },
+  { id: 1, image: "/Images/img8.jpeg", category: "Category One", title: "Project Title One" },
+  { id: 2, image: "/Images/img9.jpeg", category: "Category Two", title: "Project Title Two" },
+  { id: 3, image: "/Images/img10.jpeg", category: "Category Three", title: "Project Title Three" },
+  { id: 4, image: "/Images/img11.jpeg", category: "Category Four", title: "Project Title Four" },
+  { id: 5, image: "/Images/img12.jpeg", category: "Category Five", title: "Project Title Five" },
+  { id: 6, image: "/Images/img14.jpeg", category: "Category Six", title: "Project Title Six" },
 ];
 
 const topRightImages = [
-  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+  "/Images/img7.jpeg",
+  "/Images/img8.jpeg",
 ];
 
 const bottomGridImages = [
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
-  "https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=800&q=80",
-  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+  "/Images/img9.jpeg",
+  "/Images/img10.jpeg",
+  "/Images/img11.jpeg",
+  "/Images/img12.jpeg",
+  "/Images/img13.jpeg",
+  "/Images/img14.jpeg",
 ];
 
 // TEMPLATE CONSTANTS (UPDATE FOR REAL COMPANY INFO)
@@ -173,7 +173,7 @@ function PageHero({ title = "Portfolio Grid", breadcrumb = "Portfolio Grid" }) {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80')" }}
+        style={{ backgroundImage: "url('/Images/img15.jpeg')" }}
       />
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-orange-500/80 via-orange-900/60 to-gray-900/70" />
@@ -246,7 +246,7 @@ function PortfolioCard({ item }) {
         <span className="text-orange-400 text-[10px] font-bold tracking-widest uppercase mb-1">
           {item.category}
         </span>
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <h3 className="text-white font-bold text-lg leading-snug">{item.title}</h3>
           <motion.div
             className="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center shrink-0"
@@ -256,11 +256,11 @@ function PortfolioCard({ item }) {
           >
             <FiArrowUpRight className="text-white w-4 h-4" />
           </motion.div>
-        </div>
+        </div> */}
       </motion.div>
 
       {/* Always-visible label on last card */}
-      {item.id === 6 && (
+      {item.id === 7 && (
         <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 pb-4 pt-16 bg-gradient-to-t from-gray-900/80">
           <span className="text-white text-[11px] font-bold tracking-[0.2em] uppercase">
             {item.category}
@@ -303,6 +303,20 @@ function PortfolioGrid() {
 // ─────────────────────────────────────────────
 
 function OurWork() {
+  // Use next images for additional diversity if more images are desired
+  const localTopRightImages = [
+    "/Images/img16.jpeg",
+    "/Images/img17.jpeg",
+  ];
+  const localBottomGridImages = [
+    "/Images/img18.jpeg",
+    "/Images/img19.jpeg",
+    "/Images/img20.jpeg",
+    "/Images/img21.jpeg",
+    "/Images/img22.jpeg",
+    "/Images/img23.jpeg",
+  ];
+
   return (
     <section className="bg-[#111217] py-20 px-6 md:px-10 lg:px-16 relative overflow-hidden">
       {/* Decorative rings */}
@@ -335,14 +349,14 @@ function OurWork() {
               projects, big and small, from home maintenance and improvements to extensions,
               refurbishments and new builds.
             </p>
-            <motion.button
+            {/* <motion.button
               className="flex items-center gap-2 border border-white/30 text-white text-[11px] font-bold tracking-[0.2em] uppercase px-6 py-3.5 rounded-full w-fit hover:bg-white hover:text-gray-900 transition-all duration-300 group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
               VIEW MORE
               <FiArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-            </motion.button>
+            </motion.button> */}
           </motion.div>
 
           {/* Two portrait images */}
@@ -353,7 +367,7 @@ function OurWork() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            {topRightImages.map((src, i) => (
+            {localTopRightImages.map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden" style={{ aspectRatio: "3/4" }}>
                 <img
                   src={src}
@@ -367,7 +381,7 @@ function OurWork() {
 
         {/* Bottom 3×2 grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {bottomGridImages.map((src, i) => (
+          {localBottomGridImages.map((src, i) => (
             <motion.div
               key={i}
               className="rounded-xl overflow-hidden"

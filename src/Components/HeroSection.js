@@ -1,15 +1,61 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+// List all image URLs used for the Hero background
+const HERO_IMAGES = [
+
+  "/Images/img5.jpeg",
+  "/Images/img6.jpeg",
+  "/Images/img7.jpeg",
+  "/Images/img8.jpeg",
+  "/Images/img9.jpeg",
+  "/Images/img10.jpeg",
+  "/Images/img11.jpeg",
+  "/Images/img12.jpeg",
+  "/Images/img13.jpeg",
+  "/Images/img14.jpeg",
+  "/Images/img15.jpeg",
+  "/Images/img16.jpeg",
+  "/Images/img17.jpeg",
+  "/Images/img18.jpeg",
+  "/Images/img19.jpeg",
+  "/Images/img20.jpeg",
+  "/Images/img21.jpeg",
+  "/Images/img22.jpeg",
+  "/Images/img23.jpeg",
+  "/Images/img24.jpeg",
+  "/Images/img25.jpeg",
+  "/Images/img26.jpeg",
+  "/Images/img27.jpeg",
+  "/Images/img28.jpeg",
+  "/Images/img29.jpeg",
+  "/Images/img30.jpeg",
+  "/Images/img31.jpeg",
+  "/Images/img32.jpeg",
+];
 
 // ================= HERO COMPONENT =================
 export const Hero = () => {
+  const [imgIndex, setImgIndex] = useState(0);
+
+  useEffect(() => {
+    // Cycle hero images every 6 seconds for a slideshow effect
+    const interval = setInterval(() => {
+      setImgIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative h-[90vh] w-full overflow-hidden">
       {/* Background Image */}
       <img
-        src="/heroBG.jpg"
-        alt="construction"
+        src={HERO_IMAGES[imgIndex]}
+        alt={`hero background ${imgIndex + 1}`}
         className="absolute w-full h-full object-cover"
+        loading="eager"
+        draggable="false"
       />
 
       {/* Overlay Gradient */}
@@ -60,6 +106,44 @@ export const Hero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Mention all images as comments for reference */}
+      {/*
+        Images used as backgrounds in the hero section:
+        /Images/img1.jpeg
+        /Images/img2.jpeg
+        /Images/img3.jpeg
+        /Images/img4.jpeg
+        /Images/img5.jpeg
+        /Images/img6.jpeg
+        /Images/img7.jpeg
+        /Images/img8.jpeg
+        /Images/img9.jpeg
+        /Images/img10.jpeg
+        /Images/img11.jpeg
+        /Images/img12.jpeg
+        /Images/img13.jpeg
+        /Images/img14.jpeg
+        /Images/img15.jpeg
+        /Images/img16.jpeg
+        /Images/img17.jpeg
+        /Images/img18.jpeg
+        /Images/img19.jpeg
+        /Images/img20.jpeg
+        /Images/img21.jpeg
+        /Images/img22.jpeg
+        /Images/img23.jpeg
+        /Images/img24.jpeg
+        /Images/img25.jpeg
+        /Images/img26.jpeg
+        /Images/img27.jpeg
+        /Images/img28.jpeg
+        /Images/img29.jpeg
+        /Images/img30.jpeg
+        /Images/img31.jpeg
+        /Images/img32.jpeg
+        /Images/img33.jpeg
+      */}
     </section>
   );
 };

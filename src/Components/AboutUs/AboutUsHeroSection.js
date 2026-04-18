@@ -7,7 +7,7 @@ export const HeroSection = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              'url("https://images.unsplash.com/photo-1486406146926-c627de92f58a?w=1200&h=600&fit=crop")',
+              'url("/Images/img15.jpeg")',
           }}
         />
         <div className="absolute inset-0 bg-black/50" />

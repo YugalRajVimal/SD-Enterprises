@@ -43,12 +43,12 @@ export const ProgressBar = ({ label, percentage }) => {
               className="grid grid-cols-2 gap-4"
             >
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop"
+                src="/Images/img15.jpeg"
                 alt="Construction planning"
                 className="w-full h-64 object-cover rounded-lg"
               />
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=400&fit=crop"
+                src="/Images/img10.jpeg"
                 alt="Construction work"
                 className="w-full h-64 object-cover rounded-lg mt-8"
               />
