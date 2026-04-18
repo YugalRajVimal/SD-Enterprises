@@ -44,7 +44,7 @@ export const CompanyProfile = () => {
         {/* Right Images */}
         <div className="relative flex justify-center items-center">
           <img
-            src="/BG3.png"
+            src="/Images/img8.jpeg"
             alt="S D Enterprises working"
             className="w-full"
           />
